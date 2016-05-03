@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+         android:id="@+id/linearLayout1"
+         android:layout_width="fill_parent"
+         android:layout_height="30dip"
+         android:background="#FFFFFF" >
+
+        <Button
+            android:id="@+id/cpie"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/s"
+            android:scaleType="fitXY"
+            android:text="饼状图"
+             android:textColor="#FAB722"
+             />
+
+		<Button
+		    android:id="@+id/cbar"
+		    android:layout_width="match_parent"
+		    android:layout_height="fill_parent"
+		    android:layout_gravity="center"
+		    android:layout_weight="1"
+		    android:background="@color/ds"
+		    android:scaleType="fitXY"
+		    android:text="柱状图"
+		    android:textColor="#FAB722" />
+
+       <Button
+           android:id="@+id/clist"
+           android:layout_width="match_parent"
+           android:layout_height="fill_parent"
+           android:layout_gravity="center"
+           android:layout_weight="1"
+           android:background="@drawable/rr"
+           android:scaleType="fitXY"
+           android:src="@color/ds"
+           android:text="列表"
+           android:textColor="#FAB722" />
+      
+    </LinearLayout>
+
+   
+
+    <LinearLayout
+         android:id="@+id/mchart"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:background="#FFFFFF" 
+          android:layout_weight="3"
+          android:orientation="vertical"
+         />
+    
+   
+
+     <ImageButton
+         android:id="@+id/flow"
+         android:layout_width="match_parent"
+         android:layout_height="55dp"
+         android:layout_gravity="bottom"
+         android:background="@color/white"
+         android:scaleType="fitXY"
+         android:src="@drawable/flow" />
+ 
+</LinearLayout>

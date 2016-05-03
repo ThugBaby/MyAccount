@@ -1,0 +1,153 @@
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="top|center"
+    android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+       <LinearLayout
+           android:layout_width="50dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="top|center"
+           android:gravity="center"
+           android:orientation="vertical" >
+
+           <TextView
+               android:id="@+id/otextMoney"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_gravity="center"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|right"
+               android:text="金   额:"
+               android:textColor="@color/black" />
+
+           <TextView
+               android:id="@+id/otextTime"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|right"
+               android:text="时   间:"
+               android:textColor="@color/black" />
+
+           <TextView
+               android:id="@+id/otextType"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|right"
+               android:text="类   别:"
+               android:textColor="@color/black" />
+
+           <TextView
+               android:id="@+id/otextaddress"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|right"
+               android:text="地点:"
+               android:textColor="@color/black" />
+
+ 			<TextView
+ 			    android:id="@+id/otextNote"
+ 			    android:layout_width="match_parent"
+ 			    android:layout_height="30dp"
+ 			    android:layout_marginTop="5dp"
+ 			    android:gravity="bottom|right"
+ 			    android:text="备   注:"
+ 			    android:textColor="@color/black" />
+
+ </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="120dp"
+       android:layout_height="wrap_content"
+       android:layout_gravity="top|center"
+       android:orientation="vertical" >
+
+           <EditText
+               android:id="@+id/oeditPay"
+               style="@style/ETEdit"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_gravity="bottom"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|center"
+               android:inputType="number" >
+			
+           </EditText>
+
+              <TextView
+                  android:id="@+id/oeditTime"
+                  style="@style/ETEdit"
+                  android:layout_width="match_parent"
+                  android:layout_height="30dp"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="5dp"
+                  android:gravity="bottom|center"
+                  android:inputType="time"
+                  android:textColor="@color/black" />
+
+           <Spinner
+               android:id="@+id/ospinner1"
+               style="@style/ETEdit"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_gravity="bottom|center"
+               android:layout_marginTop="5dp"
+               android:entries="@array/intype"
+               android:gravity="bottom|center"
+               android:paddingTop="5dp"
+               android:spinnerMode="dialog" />
+
+           <EditText
+               android:id="@+id/oadress"
+               style="@style/ETEdit"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|center"
+               android:textColor="@color/black" >
+
+           </EditText>           
+
+           <EditText
+               android:id="@+id/oeditNote"
+               style="@style/ETEdit"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_marginTop="5dp"
+               android:gravity="bottom|center"
+               android:textColor="@color/black" />
+        
+       </LinearLayout>
+</LinearLayout>
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:gravity="center"
+         android:orientation="horizontal" >
+
+          <Button
+              android:id="@+id/obtCancel"
+              android:layout_width="wrap_content"
+              android:layout_height="39dp"
+              android:layout_marginRight="5dp"
+              android:text="取消" />
+
+           <Button
+               android:id="@+id/obtSave"
+               android:layout_width="wrap_content"
+               android:layout_height="39dp"
+               android:layout_marginLeft="5dp"
+               android:text="保存" />
+   
+    </LinearLayout>
+</LinearLayout>

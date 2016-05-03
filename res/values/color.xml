@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_blue">#FF8000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#900</color>
+    <color name="green">#090</color>
+    <color name="blue">#009</color>
+    <color name="black">#000</color>
+    <color name="sblack">#3A3F42</color>
+    <color name="cblack">#020356</color>
+    <color name="slide">#B5B5B5</color>
+    <color name="item_bg_color">#4d000000</color>
+    <color name="s">#AFE11E</color>
+    <color name="ds">#FAF3BF</color>
+    
+    <item name="gray_et_bg"  type="color">#F2F2F2</item>
+</resources>

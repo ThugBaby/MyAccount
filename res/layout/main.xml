@@ -1,0 +1,255 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/abs"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal" >
+
+  <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:iconifiedByDefault="true"
+        android:inputType="textCapWords"
+        android:imeOptions="actionSearch"
+        android:queryHint="" />
+  </LinearLayout>
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="138dp"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_marginTop="30dp"
+       android:orientation="horizontal" >
+
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:layout_weight="2"
+       android:orientation="vertical" >
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:layout_marginLeft="5dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="当月收入：" >
+            
+        </TextView>
+
+          <TextView
+              android:id="@+id/Min"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              >
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="当月支出：" >
+             
+        </TextView>
+        <TextView
+            android:id="@+id/Mout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           
+            android:text="" >
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="账户余额：" >
+              
+        </TextView>
+
+         <TextView
+             android:id="@+id/rest"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+          
+             android:text="" >
+
+        </TextView>          
+    </LinearLayout>     
+</LinearLayout>
+
+       </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_weight="1"
+       android:orientation="horizontal" >
+
+  
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_weight="1"
+         android:orientation="vertical" >
+
+           <TextView
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_horizontal"
+               android:gravity="center_horizontal"
+               android:text="近3个月收支情况" >
+
+         </TextView>
+       <fragment
+           android:name="com.yzy.myaccount.fragment.BarChartFragment"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+            />
+       
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_gravity="center_vertical"
+         android:layout_weight="3"
+         android:orientation="vertical" >
+
+       <TextView
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:gravity="center"
+           android:text="盈余"
+           android:textColorHint="@color/red"
+           android:textSize="20sp"
+           android:textStyle="bold|italic" >
+      
+           </TextView>
+       <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+            android:gravity="bottom"
+         android:layout_gravity="bottom"
+         android:orientation="vertical" >
+           
+
+           <TextView
+               android:id="@+id/mt1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+                 android:gravity="bottom"
+               android:layout_weight="1"
+               android:text="1月" >
+           
+           </TextView>
+           <TextView
+               android:id="@+id/m1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+                >
+           
+           </TextView>
+
+          
+           <TextView
+               android:id="@+id/mt2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+                 android:gravity="bottom"
+               android:layout_weight="1"
+               android:text="2月" >
+
+           </TextView>
+             <TextView
+               android:id="@+id/m2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+                >
+           
+           </TextView>
+           <TextView
+               android:id="@+id/mt3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+                 android:gravity="bottom"
+               android:layout_weight="1"
+               android:text="3月" >
+
+           </TextView>
+           <TextView
+               android:id="@+id/m3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+                >
+           
+           </TextView>
+
+           
+       </LinearLayout>
+       </LinearLayout>
+   </LinearLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_marginTop="10dp"
+      android:orientation="vertical" >
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_weight="1"
+      android:orientation="vertical" >
+ <fragment
+           android:name="com.yzy.myaccount.fragment.TableFragment"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+            />
+      </LinearLayout>
+ 
+   <ImageButton
+       android:id="@+id/write"
+       android:layout_width="match_parent"
+       android:layout_height="55dp"
+       android:layout_gravity="bottom"
+       android:adjustViewBounds="true"
+       android:background="@color/white"
+       android:scaleType="fitXY"
+       android:src="@drawable/write" >
+
+    </ImageButton>
+   </LinearLayout>
+   
+</LinearLayout>
