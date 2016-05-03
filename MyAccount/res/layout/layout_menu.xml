@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+   android:background="@drawable/bg"
+    android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <ImageView
+       android:id="@+id/icon"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:scaleType="centerCrop"
+       android:src="@drawable/icon" />
+
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" >
+
+ <ImageView
+     android:id="@+id/v1"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentLeft="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/home" />
+
+    <TextView
+        android:id="@+id/tvToday"
+        android:layout_width="235dp"
+        android:layout_height="50.0dip"
+        
+        
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="50.0dip"
+        android:text="首       页"
+        android:textColor="@color/white"
+        android:textSize="16.0sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <ImageView
+        android:id="@+id/v2"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/right" />
+
+ </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dip"
+        android:background="@drawable/pc_account_line" />
+<RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" >
+
+ <ImageView
+     android:id="@+id/v3"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentLeft="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/set" />
+    <TextView
+        android:id="@+id/tvLastlist"
+        android:layout_width="235dp"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="50.0dip"
+        
+        android:text="设       置"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+     <ImageView
+         android:id="@+id/v4"
+         android:layout_width="25dip"
+         android:layout_height="25dip"
+         android:layout_alignParentRight="true"
+         android:layout_centerVertical="true"
+         android:src="@drawable/right" />
+
+</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dip"
+        android:background="@drawable/pc_account_line" />
+<RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" >
+
+ <ImageView
+     android:id="@+id/v5"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentLeft="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/help" />
+    
+    <TextView
+        android:id="@+id/tvDiscussMeeting"
+        android:layout_width="235dp"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="50.0dip"
+        android:text="帮       助"
+        android:textColor="@color/white"
+        android:textSize="16.0sp"
+        android:textStyle="bold" />
+
+ <ImageView
+     android:id="@+id/v6"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentRight="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/right" />
+
+ </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dip"
+        android:background="@drawable/pc_account_line" />
+<RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" >
+
+     <ImageView
+         android:id="@+id/v7"
+         android:layout_width="25dip"
+         android:layout_height="25dip"
+         android:layout_alignParentLeft="true"
+         android:layout_centerVertical="true"
+         android:src="@drawable/suggest" />
+    
+    <TextView
+        android:id="@+id/tvMyFavorites"
+        android:layout_width="235dp"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="50.0dip"
+        android:text="意见反馈"
+        android:textColor="@color/white"
+        android:textSize="16.0sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+ <ImageView
+     android:id="@+id/v8"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentRight="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/right" />
+
+ </RelativeLayout>
+ 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dip"
+        android:background="@drawable/pc_account_line" />
+<RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" 
+     android:id="@+id/up"
+     >
+
+ <ImageView
+     android:id="@+id/v9"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentLeft="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/update" />
+    <TextView
+        android:id="@+id/tvUpdate"
+        android:layout_width="235dp"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="50.0dip"
+        android:text="检查更新"
+        android:textColor="@color/white"
+        android:textSize="16.0sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/v10"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/right" />
+
+ </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dip"
+        android:background="@drawable/pc_account_line" />
+    <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" >
+
+ <ImageView
+     android:id="@+id/v11"
+     android:layout_width="25dip"
+     android:layout_height="25dip"
+     android:layout_alignParentLeft="true"
+     android:layout_centerVertical="true"
+     android:src="@drawable/about" />
+    <TextView
+         android:id="@+id/tvMySettings"
+        android:layout_width="235dp"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="50.0dip"
+        android:text="关       于"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <ImageView
+        android:id="@+id/v12"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/right" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dip"
+        android:background="@drawable/pc_account_line" />
+
+   
+   
+	
+</LinearLayout>
