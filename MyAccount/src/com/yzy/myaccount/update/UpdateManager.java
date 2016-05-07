@@ -62,8 +62,8 @@ public class UpdateManager
 			case DOWNLOAD:
 				// 设置进度条位置
 				mProgress.setProgress(progress);
-				tip.setText("已下载"+progress+"%");
-				//Log.i("1111",""+progress);
+				tip.setText("正在下载"+progress+"%");
+				Log.i("1111",""+progress);
 				break;
 			case DOWNLOAD_FINISH:
 				// 安装文件

@@ -25,6 +25,7 @@
     <item>贪污</item>
     <item>腐败</item>
     <item>其他</item>
+    <item>类别管理</item>
     </string-array>
       <!-- Gesture code starting -->
     <string name="setup_gesture_code">设置手势密码</string>

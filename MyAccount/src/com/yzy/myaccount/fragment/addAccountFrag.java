@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import android.R.integer;
 import android.app.DatePickerDialog;
 
 import com.github.mikephil.charting.data.BarData;
@@ -15,12 +16,15 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.yzy.myaccount.R;
+import com.yzy.myaccount.R.string;
 import com.yzy.myaccount.activity.AddAccount;
 import com.yzy.myaccount.activity.MainActivity;
+import com.yzy.myaccount.activity.TypeActivity;
 import com.yzy.myaccount.dao.Tb_flagDao;
 import com.yzy.myaccount.dao.Tb_inaccountDao;
 import com.yzy.myaccount.dao.Tb_outaccountDao;
 import com.yzy.myaccount.dao.Tb_statisticDao;
+import com.yzy.myaccount.dao.Tb_typeDao;
 import com.yzy.myaccount.fragment.menuFragment.MyOnClickListener;
 import com.yzy.myaccount.fragment.menuFragment.MyOnPageChangeListener;
 import com.yzy.myaccount.fragment.menuFragment.MyPagerAdapter;
@@ -28,6 +32,7 @@ import com.yzy.myaccount.model.Tb_flag;
 import com.yzy.myaccount.model.Tb_inaccount;
 import com.yzy.myaccount.model.Tb_outaccount;
 import com.yzy.myaccount.model.Tb_statistic;
+import com.yzy.myaccount.model.Tb_type;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -241,7 +246,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	           			public void onClick(View arg0) {
 	           				// TODO Auto-generated method stub
 	           				
-	           				editMoney.setHint("0.00");
+	           				editMoney.setText("");
 	           				spinner.setSelection(0);
 	           				editPay.setText("");
 	           				editNote.setText("");
@@ -313,7 +318,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		           			@Override
 		           			public void onClick(View arg0) {
 		           				// TODO Auto-generated method stub
-		           				oeditMoney.setText("0.0");
+		           				oeditMoney.setText("");
 		           				ospinner.setSelection(0);
 		           				oaddress.setText("");
 		           				oeditNote.setText("");
@@ -449,8 +454,15 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	           		}
 	           	};
 	            private void initSpinner(Spinner mSpinner){
-	            	
-	            	mStringArray=getResources().getStringArray(R.array.intype);
+	            	 Tb_typeDao dao=new Tb_typeDao(getActivity());
+	                List<String> list=dao.getAll();
+	                String[] arrayString=new String[list.size()+1];
+	                for(int i=0;i<list.size();i++)
+	                {
+	                	arrayString[i]=list.get(i);
+	                }
+	                 arrayString[arrayString.length-1]="类别管理";
+	                	mStringArray=arrayString;
 	            //使用自定义的ArrayAdapter
 	            mAdapter = new TestArrayAdapter(getActivity(),mStringArray);
 	            
@@ -460,12 +472,18 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            //监听Item选中事件
 	            mSpinner.setOnItemSelectedListener(new ItemSelectedListenerImpl());
 	                  
-	            }
-	            
+	            }	            
 	            private class ItemSelectedListenerImpl implements OnItemSelectedListener{
 	            @Override
 	            public void onItemSelected(AdapterView<?> parent, View view, int position,long arg3) {
-	              System.out.println("选中了:"+mStringArray[position]);
+	           
+	              if(position==mStringArray.length-1)
+	              {
+	            	  Log.i("选择了",""+mStringArray[position]);
+	            	  AddAccount.instance.finish();
+	            	  Intent intent=new Intent(getActivity(),TypeActivity.class);
+	            	  startActivity(intent);
+	              }
 	            }
 
 	            @Override
@@ -494,7 +512,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            	    tv.setText(mStringArray[position]);
 	            	    tv.setTextSize(15f);
 	            	    tv.setTextColor(Color.RED);
-
+	            	    
 	            	    return convertView;
 
 	            	  }

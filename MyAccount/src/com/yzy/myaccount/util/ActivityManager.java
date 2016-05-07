@@ -1,5 +1,6 @@
 package com.yzy.myaccount.util;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import android.app.Application;
 public class ActivityManager extends Application {  
     //建立链表集合  
     private List<Activity> activityList = new LinkedList<Activity>();  
-      
-    //用单例模式，保证，这个ActivityManager 在整个应用中只有一个  
+      private List<String> type=new ArrayList<String>();
+     //用单例模式，保证，这个ActivityManager 在整个应用中只有一个  
     private static ActivityManager instance;  
   
     private ActivityManager() {  
@@ -28,7 +29,7 @@ public class ActivityManager extends Application {
     public void addActivity(Activity activity) {  
         activityList.add(activity);  
     }  
-  
+
     //结束整个应用程序  
     public void exit() {  
           

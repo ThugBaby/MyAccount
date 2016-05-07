@@ -10,7 +10,9 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.CanvasTransformer;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.yzy.myaccount.R;
+import com.yzy.myaccount.dao.Tb_atypeDao;
 import com.yzy.myaccount.dao.Tb_inaccountDao;
+import com.yzy.myaccount.dao.Tb_typeDao;
 import com.yzy.myaccount.fragment.ColorFragment;
 import com.yzy.myaccount.fragment.LeftFragment;
 import com.yzy.myaccount.fragment.TodayFragment;
@@ -105,6 +107,26 @@ public class MainActivity extends SlidingFragmentActivity implements
 		requestWindowFeature(Window.FEATURE_NO_TITLE); // 无标题
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//初始化数据
+		 Tb_typeDao  dao=new Tb_typeDao(this);
+		 Tb_atypeDao  adao=new Tb_atypeDao(this);
+		 if(dao.getType(1)==null)
+		 {
+			 dao.add("工资");
+			    dao.add("外出");
+			    dao.add("贪污");
+			    dao.add("腐败");
+			    dao.add("其他");
+			   
+		 }
+		 if(!adao.getType(1))
+		 {
+			 adao.add("工资");
+			    adao.add("外出");
+			    adao.add("贪污");
+			    adao.add("腐败");
+			    adao.add("其他");
+		 }
 		 exitM= ActivityManager.getInstance();
 		exitM.addActivity(MainActivity.this);
 		// 强制在主线程执行更新

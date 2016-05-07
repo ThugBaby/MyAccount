@@ -8,6 +8,7 @@ import java.util.List;
 
 
 
+import java.util.Random;
 import java.util.logging.Logger;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -17,8 +18,11 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.yzy.myaccount.R;
+import com.yzy.myaccount.dao.Tb_atypeDao;
 import com.yzy.myaccount.dao.Tb_statisticDao;
+import com.yzy.myaccount.dao.Tb_typeDao;
 import com.yzy.myaccount.model.Tb_statistic;
+import com.yzy.myaccount.util.ActivityManager;
 
 import android.R.integer;
 import android.R.raw;
@@ -42,7 +46,6 @@ public class ChartFragment extends Fragment implements OnClickListener{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
-	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -147,22 +150,29 @@ public class ChartFragment extends Fragment implements OnClickListener{
 		}
 	}
 	    public PieData getPieData(int tag) {    
-	            
+	           
 	        ArrayList<String> xValues = new ArrayList<String>();  //xVals用来表示每个饼块上的内容    
-	    
-	        boolean a[]={false,false,false,false,false};
-	        boolean bn[]={false,false,false,false,false};
-	        boolean cn[]={false,false,false,false,false};
+	        Tb_atypeDao tdao=new Tb_atypeDao(getActivity());
+	        List tlist=tdao.getAll();
+	        int len=tlist.size();
+	        Random random=new Random();
+	        String type[]=new String[len];
+	        float money[]=new float[len];
+	        float min[]=new float[len];
+	        float mout[]=new float[len];
+	        boolean a[]=new boolean[len];
+	        boolean bn[]=new boolean[len];
+	        boolean cn[]=new boolean[len];
+	        int color[]=new int[len];
+	        for(int i=0;i<len;i++)
+	        {
+	        	a[i]=false;
+	        	bn[i]=false;
+	        	cn[i]=false;
+	        	color[i]= Color.rgb(random.nextInt(256),random.nextInt(256),random.nextInt(256));
+	        	type[i]=(String)tlist.get(i);
+	        }
 	        float in=0,out=0,tin=0,tout=0;
-	        int color[]={   Color.rgb(205, 205, 205) ,  
-	  	 	      Color.rgb(114, 188, 223) ,   
-		 	       Color.rgb(255, 123, 124),   
-		 	       Color.rgb(57, 135, 200) ,
-		 	      Color.rgb(57, 100, 243) };
-	        float money[]={0,0,0,0,0};
-	        float min[]={0,0,0,0,0};
-	        float mout[]={0,0,0,0,0};
-	        String type[]={"工资","外出","贪污","腐败","其他"};
 	        Tb_statisticDao dao=new Tb_statisticDao(getActivity());
 	        List<Tb_statistic> list=dao.getAllData();
 	        Iterator<Tb_statistic> iterator=list.iterator();
@@ -179,93 +189,30 @@ public class ChartFragment extends Fragment implements OnClickListener{
 				default:
 					break;
 				}
-	        	switch (statistic.getType()) {
-				case "工资"://按类别汇总收入
+	        for(int i=0;i<len;i++)
+	        {   
+	        	Log.i("type",type[i]);
+	        	if(statistic.getType().equals(type[i]))
+	        	{
+				//按类别汇总收入
 					   switch (statistic.getMoney().substring(0, 2)) {
 					case "收入":
-						  min[0]+=Float.parseFloat(statistic.getMoney().substring(3));
-						  bn[0]=true;
+						  min[i]+=Float.parseFloat(statistic.getMoney().substring(3));
+						  bn[i]=true;
 						break;
 					case "支出":
-						 mout[0]+=Float.parseFloat(statistic.getMoney().substring(3));
-						 cn[0]=true;
+						 mout[i]+=Float.parseFloat(statistic.getMoney().substring(3));
+						 cn[i]=true;
 						break;
 					default:
 						break;
+					
 					}
-					money[0]+=Float.parseFloat(statistic.getMoney().substring(3));
-					   
-					   a[0]=true;
-					break;
-				case "外出":
-					switch (statistic.getMoney().substring(0, 2)) {
-					case "收入":
-						  min[1]+=Float.parseFloat(statistic.getMoney().substring(3));
-						  bn[1]=true;
-						break;
-					case "支出":
-						 mout[1]+=Float.parseFloat(statistic.getMoney().substring(3));
-						 cn[1]=true;
-						break;
-					default:
-						break;
-					}
-					money[1]+=Float.parseFloat(statistic.getMoney().substring(3));
-					   a[1]=true;
-					break;
-				case "贪污":
-					switch (statistic.getMoney().substring(0, 2)) {
-					case "收入":
-						  min[2]+=Float.parseFloat(statistic.getMoney().substring(3));
-						  bn[2]=true;
-						break;
-					case "支出":
-						 mout[2]+=Float.parseFloat(statistic.getMoney().substring(3));
-						 cn[2]=true;
-						break;
-					default:
-						break;
-					}
-					money[2]+=Float.parseFloat(statistic.getMoney().substring(3));
-					   a[2]=true;
-					break;
-				case "腐败":
-					switch (statistic.getMoney().substring(0, 2)) {
-					case "收入":
-						  min[3]+=Float.parseFloat(statistic.getMoney().substring(3));
-						  
-						  bn[3]=true;
-						break;
-					case "支出":
-						 mout[3]+=Float.parseFloat(statistic.getMoney().substring(3));
-						 cn[3]=true;
-						break;
-					default:
-						break;
-					}
-					money[3]+=Float.parseFloat(statistic.getMoney().substring(3));
-					   a[3]=true;
-					break;
-				case "其他":
-					switch (statistic.getMoney().substring(0, 2)) {
-					case "收入":
-						  min[4]+=Float.parseFloat(statistic.getMoney().substring(3));
-						  bn[4]=true;
-						break;
-					case "支出":
-						 mout[4]+=Float.parseFloat(statistic.getMoney().substring(3));
-						 cn[4]=true;
-						break;
-					default:
-						break;
-					}
-					money[4]+=Float.parseFloat(statistic.getMoney().substring(3));
-					   a[4]=true;
-					break;
-				default:
-					break;
-				}
-	        	
+					money[i]+=Float.parseFloat(statistic.getMoney().substring(3));					   
+					   a[i]=true;
+					   Log.i("flag",""+a[i]);
+	        	}
+	        }
 	        }
 	        ArrayList<Entry> yValues = new ArrayList<Entry>();  //yVals用来表示封装每个饼块的实际数据    
 	        
@@ -386,6 +333,8 @@ public class ChartFragment extends Fragment implements OnClickListener{
 	        PieData pieData = new PieData(xValues, pieDataSet);              
 	        return pieData;   
 	    }
+	    //产生随机颜色
+	   
 	    @Override
 		public void onDestroyView() {
 			super.onDestroyView();

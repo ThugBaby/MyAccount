@@ -34,12 +34,13 @@ import android.widget.Toast;
 
 public class AddAccount extends FragmentActivity {
      
-	
+	public static AddAccount instance = null;
 	public void onCreate(Bundle savedInstanceState)
-	{
+	{ 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addmain);
 	//////设置为true点击区域外消失
+		  
 		setFinishOnTouchOutside(true);
 		   WindowManager m = getWindowManager();    
 	       Display d = m.getDefaultDisplay();  //为获取屏幕宽、高    
@@ -50,6 +51,7 @@ public class AddAccount extends FragmentActivity {
 	       //使用FragmentManager进行内容显示
 		   getSupportFragmentManager().beginTransaction()
 			.replace(R.id.aa, new addAccountFrag()).commit();
+		   instance=this;
 		   
 }
 }

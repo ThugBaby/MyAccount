@@ -14,6 +14,7 @@ import com.yzy.myaccount.activity.EditActivity;
 import com.yzy.myaccount.activity.FlowActivity;
 import com.yzy.myaccount.activity.MainActivity;
 import com.yzy.myaccount.activity.ManageActivity;
+import com.yzy.myaccount.activity.TypeActivity;
 import com.yzy.myaccount.activity.test;
 import com.yzy.myaccount.dao.Tb_inaccountDao;
 import com.yzy.myaccount.dao.Tb_outaccountDao;
@@ -139,7 +140,6 @@ public class menuFragment extends Fragment {
 				.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		viewPage.setOnPageChangeListener(new MyOnPageChangeListener());
 	}
-
 	/**
 	 * ViewPager适配器
 	 */
@@ -407,6 +407,8 @@ public class menuFragment extends Fragment {
 						R.id.tvmdata);
 				View view2 = (View) mListViews.get(position).findViewById(
 						R.id.tvadata);
+				View view4 = (View) mListViews.get(position).findViewById(
+						R.id.tvtype);
 				view.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -429,7 +431,17 @@ public class menuFragment extends Fragment {
 						startActivity(intent);
 					}
 				});
+				view4.setOnClickListener(new View.OnClickListener() {
 
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent(getActivity(),
+								TypeActivity.class);
+
+						startActivity(intent);
+					}
+				});
 				break;
 			default:
 				break;
